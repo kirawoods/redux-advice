@@ -1,46 +1,35 @@
 import { createStore, applyMiddleware } from "redux";
+import { FETCHING, SUCCESS, ERROR } from "../actions";
 
 const initialState = {
   advice: "Don't run with scissors",
   isLoading: false,
-  failed: false
+  error: ""
 };
 
 export const reducer = (state = initialState, action) => {
-  console.log("Reducer", state, action);
-  return state;
+  switch (action.type) {
+    case FETCHING:
+      return {
+        ...state,
+        isLoading: true,
+        error: ""
+      };
+    case SUCCESS:
+      return {
+        ...state,
+        advice: action.payload,
+        isLoading: false,
+        error: ""
+      };
+    case ERROR:
+      return {
+        ...state,
+        error: action.payload
+      };
+    default:
+      return state;
+  }
 };
 
 export const store = createStore(reducer);
-
-// export const adviceReducer = () => {
-//   return initialState;
-// };
-
-// export const adviceReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case FETCHING:
-//       return {
-//         ...state,
-//         isLoading: true,
-//         failed: false
-//       };
-//     case SUCCESS:
-//       console.log("action.payload in GET_DATA reducer: ", action.payload);
-//       return {
-//         ...state,
-//         advice: action.payload,
-//         isLoading: false,
-//         failed: false
-//       };
-//     case ERROR:
-//       return {
-//         ...state,
-//         advice: action.payload,
-//         isLoading: false,
-//         failed: true
-//       };
-//     default:
-//       return state;
-//   }
-// };
