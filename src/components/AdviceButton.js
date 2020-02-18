@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
+// import { connect } from "react-redux";
 
-export class AdviceButton extends Component {
-  render() {
-    return <button>Consult the Oracle</button>;
-  }
-}
+export const AdviceButton = () => {
+  return <button>Consult the Oracle</button>;
+};
