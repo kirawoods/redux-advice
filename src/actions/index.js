@@ -1,13 +1,13 @@
 import axios from "axios";
 
-export const GET_DATA = "GET_DATA";
+export const FETCHING = "FETCHING";
 export const SUCCESS = "SUCCESS";
 export const ERROR = "ERROR";
 
-export const getData = () => dispatch => {
+export const getAdvice = () => dispatch => {
   dispatch({ type: FETCHING });
   axios
     .get(`https://api.adviceslip.com/advice`)
     .then(res => dispatch({ type: SUCCESS, payload: res.slip.advice }))
-    .catch(err => dispatch({ type: ERROR, payload: err.message }));
+    .catch(err => dispatch({ type: ERROR, payload: err }));
 };
