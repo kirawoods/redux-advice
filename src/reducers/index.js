@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
 import { FETCHING, SUCCESS, ERROR } from "../actions";
+import thunk from "redux-thunk";
 
 const initialState = {
   advice: "Don't run with scissors",
@@ -32,4 +33,4 @@ export const reducer = (state = initialState, action) => {
   }
 };
 
-export const store = createStore(reducer);
+export const store = createStore(reducer, applyMiddleware(thunk));

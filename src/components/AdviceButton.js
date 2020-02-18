@@ -1,8 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { getAdvice } from "../actions";
 
-const AdviceButton = () => {
-  return <button>Consult the Oracle</button>;
+const AdviceButton = props => {
+  function handleClick(e) {
+    e.preventDefault();
+    props.getAdvice(e);
+    console.log(props);
+  }
+  return <button onClick={handleClick}>Consult the Oracle</button>;
 };
 
 const mapStateToProps = state => {
@@ -13,4 +19,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, {})(AdviceButton);
+export default connect(mapStateToProps, { getAdvice })(AdviceButton);
