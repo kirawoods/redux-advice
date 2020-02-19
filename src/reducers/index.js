@@ -22,7 +22,6 @@ export const reducer = (state = initialState, action) => {
         error: ""
       };
     case SUCCESS:
-      console.log(action);
       return {
         ...state,
         adviceSlip: action.payload,

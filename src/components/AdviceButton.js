@@ -7,7 +7,6 @@ const AdviceButton = props => {
   function handleClick(e) {
     e.preventDefault();
     props.getAdvice();
-    console.log(props);
   }
   return (
     <div>
