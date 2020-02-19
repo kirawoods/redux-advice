@@ -3,8 +3,15 @@
   margin: -8px -8px 0px -8px;
 }
 
+.oracle {
+  margin: -160px;
+  object-fit: cover;
+  object-position: -10px;
+  width: 590px;
+}
+
 .App-header {
-  background-color: #282c34;
+  background-color: #332a25;
   height: 98vh;
   display: flex;
   flex-direction: column;

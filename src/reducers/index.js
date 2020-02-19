@@ -3,7 +3,12 @@ import { FETCHING, SUCCESS, ERROR } from "../actions";
 import thunk from "redux-thunk";
 
 const initialState = {
-  adviceSlip: { slip: { advice: "Never run with scissors.", slip_id: 40 } },
+  adviceSlip: {
+    slip: {
+      advice: "Click the Crystal Ball to Gain Insight into Your Future",
+      slip_id: 0
+    }
+  },
   isLoading: false,
   error: ""
 };

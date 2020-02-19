@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getAdvice } from "../actions";
+import "./AdviceButton.css";
 
 const AdviceButton = props => {
   function handleClick(e) {
@@ -10,8 +11,14 @@ const AdviceButton = props => {
   }
   return (
     <div>
-      <button onClick={handleClick}>Consult the Oracle</button>
-      <p>{props.adviceSlip.slip.advice}</p>
+      <button className="advice-button" onClick={handleClick}>
+        Consult
+        <br />
+        the
+        <br />
+        Oracle
+      </button>
+      <p className="advice-slip">{props.adviceSlip.slip.advice}</p>
     </div>
   );
 };
