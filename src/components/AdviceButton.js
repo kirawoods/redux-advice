@@ -5,15 +5,20 @@ import { getAdvice } from "../actions";
 const AdviceButton = props => {
   function handleClick(e) {
     e.preventDefault();
-    props.getAdvice(e);
+    props.getAdvice();
     console.log(props);
   }
-  return <button onClick={handleClick}>Consult the Oracle</button>;
+  return (
+    <div>
+      <button onClick={handleClick}>Consult the Oracle</button>
+      <p>{props.adviceSlip.slip.advice}</p>
+    </div>
+  );
 };
 
 const mapStateToProps = state => {
   return {
-    advice: state.advice,
+    adviceSlip: state.adviceSlip,
     isLoading: false,
     failed: false
   };

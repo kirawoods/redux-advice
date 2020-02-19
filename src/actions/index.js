@@ -8,6 +8,6 @@ export const getAdvice = () => dispatch => {
   dispatch({ type: FETCHING });
   axios
     .get(`https://api.adviceslip.com/advice`)
-    .then(res => dispatch({ type: SUCCESS, payload: res.slip.advice }))
+    .then(res => dispatch({ type: SUCCESS, payload: res.data }))
     .catch(err => dispatch({ type: ERROR, payload: err }));
 };

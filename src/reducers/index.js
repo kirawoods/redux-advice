@@ -3,7 +3,7 @@ import { FETCHING, SUCCESS, ERROR } from "../actions";
 import thunk from "redux-thunk";
 
 const initialState = {
-  advice: "Don't run with scissors",
+  adviceSlip: { slip: { advice: "Never run with scissors.", slip_id: 40 } },
   isLoading: false,
   error: ""
 };
@@ -17,9 +17,10 @@ export const reducer = (state = initialState, action) => {
         error: ""
       };
     case SUCCESS:
+      console.log(action);
       return {
         ...state,
-        advice: action.payload,
+        adviceSlip: action.payload,
         isLoading: false,
         error: ""
       };
